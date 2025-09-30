@@ -1,0 +1,35 @@
+/*
+5. Write a program that sorts an array of numbers in ascending and descending order without using sort().
+
+*/
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sort Array</title>
+</head>
+<body>
+  <h2>Sort Array Ascending & Descending</h2>
+  <p>Array: [34, 12, 56, 7, 89, 21]</p>
+  <button onclick="sortArray()">Sort</button>
+  <p id="asc"></p>
+  <p id="desc"></p>
+
+  <script>
+    function sortArray() {
+      let arr = [34, 12, 56, 7, 89, 21];
+
+      // Bubble sort
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+          }
+        }
+      }
+
+      document.getElementById("asc").innerText = "Ascending: " + arr.join(", ");
+      document.getElementById("desc").innerText = "Descending: " + arr.slice().reverse().join(", ");
+    }
+  </script>
+</body>
+</html>
