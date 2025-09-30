@@ -1,0 +1,65 @@
+/*
+1. Create a registration form with fields: username, email, password, and confirm password. Write JavaScript to validate:
+          -Username should not be empty.
+           -Email must be valid (@ and domain check).
+           -Password must be at least 8 characters.
+           -Confirm password should match password.
+*/
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="regForm">
+    <label>Username:</label>
+    <input type="text" id="username"><br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email"><br><br>
+
+    <label>Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword"><br><br>
+
+    <button type="button" onclick="validateForm()">Register</button>
+  </form>
+
+  <p id="message" style="color:red;"></p>
+
+  <script>
+    function validateForm() {
+      let username = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+      let message = "";
+
+      // Username check
+      if (username.trim() === "") {
+        message = "Username cannot be empty.";
+      }
+      // Email check
+      else if (!email.includes("@") || !email.includes(".")) {
+        message = "Invalid email format.";
+      }
+      // Password check
+      else if (password.length < 8) {
+        message = "Password must be at least 8 characters.";
+      }
+      // Confirm password check
+      else if (password !== confirmPassword) {
+        message = "Passwords do not match.";
+      } else {
+        message = "Registration Successful!";
+        document.getElementById("message").style.color = "green";
+      }
+
+      document.getElementById("message").innerText = message;
+    }
+  </script>
+</body>
+</html>
