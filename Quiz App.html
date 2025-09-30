@@ -1,0 +1,55 @@
+/*
+6. Develop a quiz app with 5 multiple-choice questions. Show the user’s score at the end.
+
+*/
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz App</title>
+</head>
+<body>
+  <h2>Quiz App</h2>
+  <form id="quizForm">
+    <p>1. Capital of India?</p>
+    <input type="radio" name="q1" value="Delhi">Delhi
+    <input type="radio" name="q1" value="Mumbai">Mumbai
+
+    <p>2. 2 + 2 = ?</p>
+    <input type="radio" name="q2" value="3">3
+    <input type="radio" name="q2" value="4">4
+
+    <p>3. HTML stands for?</p>
+    <input type="radio" name="q3" value="Markup">Hyper Text Markup Language
+    <input type="radio" name="q3" value="Makeup">Hyper Text Makeup Language
+
+    <p>4. Which is a JS framework?</p>
+    <input type="radio" name="q4" value="React">React
+    <input type="radio" name="q4" value="Photoshop">Photoshop
+
+    <p>5. Sun rises in?</p>
+    <input type="radio" name="q5" value="East">East
+    <input type="radio" name="q5" value="West">West
+
+    <br><br>
+    <button type="button" onclick="checkScore()">Submit</button>
+  </form>
+
+  <p id="score"></p>
+
+  <script>
+    function checkScore() {
+      let answers = { q1: "Delhi", q2: "4", q3: "Markup", q4: "React", q5: "East" };
+      let form = document.forms["quizForm"];
+      let score = 0;
+
+      for (let key in answers) {
+        if (form[key].value === answers[key]) {
+          score++;
+        }
+      }
+
+      document.getElementById("score").innerText = "Your Score: " + score + "/5";
+    }
+  </script>
+</body>
+</html>
